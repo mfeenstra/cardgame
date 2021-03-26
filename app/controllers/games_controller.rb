@@ -6,8 +6,13 @@ class GamesController < ApplicationController
 
   def draw
     @game = Game.find(session[:game_id])
+    prev_size = @game.hand.size
     @game.draw_card
-    redirect_to games_url, notice: "You have drawn a card."
+    if @game.hand.size > prev_size then
+      redirect_to games_url, notice: "You have drawn a card."
+    else
+      redirect_to games_url, notice: "You did NOT draw a card."
+    end
   end
 
   def shuffle
