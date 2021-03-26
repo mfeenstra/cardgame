@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+<h2>Deck:</h2>
+<%= @game.deck %>
+<h2>Hand:</h2>
+<%= @game.hand %>
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
